@@ -9,7 +9,7 @@ pipeline {
       choices:[
         'python',
         'golang',
-        'javaa',
+        'javaaa',
         'eng'
       ],
       description:'select the deployment language')
@@ -34,9 +34,10 @@ pipeline {
       steps {
         sh 'go version'
         echo "displaying testversion stage for brnach ${BRANCH_NAME}  - BUILD URL ${BUILD_URL}"
-//         script{
+        script{
 //           setGitHubPullRequestStatus.message("message from jenkins")
-//         }
+              pullRequest.comment("the jenkins testing is successfull ")
+        }
       }
     }  
       
